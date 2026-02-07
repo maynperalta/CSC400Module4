@@ -56,7 +56,29 @@ public class Main {
 				return Integer.MIN_VALUE;
 			}
 		}
+		
+		if (stack.size() != 1) {
+			System.out.println("Error: Invalid postfix expression.");
+			return Integer.MIN_VALUE;
+		}
+		
+		return stack.pop();
 	}
+	
+	private boolean isNumeric(String str) {
+		try {
+			Integer.parseInt(str);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
+	}
+	
+	private boolean isOperator(String str) {
+		return str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/") || str.equals("%");
+	}
+	
+	
 	
 
 	public static void main(String[] args) {

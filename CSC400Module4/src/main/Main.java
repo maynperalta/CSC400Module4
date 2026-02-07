@@ -3,6 +3,7 @@ package main;
 import java.util.Stack;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.BufferedReader;
 
 public class Main {
 	
@@ -78,7 +79,23 @@ public class Main {
 		return str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/") || str.equals("%");
 	}
 	
-	
+	public void fileEquations(String filename) {
+		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+			String line;
+			int lineNumber = 1;
+			while ((line = br.readLine()) != null) {
+				System.out.println("Expression " + lineNumber + ": " + line);
+				int result = postfixCalc(line);
+				if (result != Integer.MIN_VALUE) {
+					System.out.println("Result: " + result);
+				}
+				System.out.println();
+				lineNumber ++;
+			}
+		} catch (IOException e) {
+			System.out.println("Error reading file: " + e.getMessage());
+		}
+	}
 	
 
 	public static void main(String[] args) {

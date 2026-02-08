@@ -107,7 +107,8 @@ public class PostfixCalculator {
 				"4 2 * 3 +",   // read as (4 * 2) + 3; expected result = 11
 				"5 3 + 7 *",   // read as (5 + 3) * 7; expected result = 56
 				"42 * +",	   // read as (4 * 2) +; expected result = error	
-				"12 3 / 5 *"   // read as (12 / 3) * 5; expected result = 20	
+				"12 3 / 5 *",  // read as (12 / 3) * 5; expected result = 20	
+				"70 8 % 1 -"   // read as (70 % 8) - 1; expected result = 5 
 		};
 // Loop to calculate example expressions		
 		for (String expression : testEx) {
